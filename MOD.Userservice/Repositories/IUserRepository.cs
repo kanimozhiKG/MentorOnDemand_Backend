@@ -12,6 +12,7 @@ namespace MOD.Userservice.Repositories
         public List<User> GetAll();
         void DeleteUser(long id);
         void BlockUser(long id);
+        void UnBlockUser(long id);
         void UpdatePassword(User item);
         List<Mentor> SearchMentor(string Skill);
 

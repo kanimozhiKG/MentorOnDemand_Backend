@@ -68,6 +68,14 @@ namespace MOD.Userservice.Controllers
             _repository.BlockUser(id);
 
         }
+        [HttpPut("{id}")]
+        [Route("UnBlockUser/{id}")]
+
+        public void UnBlock(long id)
+        {
+            _repository.UnBlockUser(id);
+
+        }
         [Route("GetMentorBySkill/{id}")]
         public List<Mentor> Get(string id)
         {

@@ -17,12 +17,27 @@ namespace MOD.Paymentservice.Repositories
 
         public List<Payment> GetAll()
         {
-            return _context.payment.ToList();
+            try
+            {
+                return _context.payment.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
         public void Add(Payment item)
         {
-            _context.payment.Add(item);
-            _context.SaveChanges();
+            try
+            {
+                _context.payment.Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

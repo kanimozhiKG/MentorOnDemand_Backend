@@ -17,29 +17,63 @@ namespace MOD.TrainingService.Repositories
 
         public void Add(Training item)
         {
-            _context.Training.Add(item);
-            _context.SaveChanges();
+            try {
+                _context.Training.Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<Training> GetAll()
         {
-            return _context.Training.ToList();
+            try
+            {
+                return _context.Training.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<Training> GetTrainingByUserId(long id)
         {
-            return _context.Training.Where(i => i.UserId == id).ToList();
+            try
+            {
+                return _context.Training.Where(i => i.UserId == id).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public List<Training> GetTrainingByMentorId(long id)
         {
-            return _context.Training.Where(i => i.MentorId == id).ToList();
+            try
+            {
+                return _context.Training.Where(i => i.MentorId == id).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void Update(Training item)
         {
-            _context.Entry(item).State =
-                   Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(item).State =
+                       Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
     }

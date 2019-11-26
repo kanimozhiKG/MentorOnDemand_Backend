@@ -17,26 +17,57 @@ namespace MOD.Technologyservice.Repositories
 
         public List<Technology> GetAll()
         {
-            return _context.technology.ToList();
+            try
+            {
+                return _context.technology.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         public void Add(Technology item)
         {
-            _context.technology.Add(item);
-            _context.SaveChanges();
+            try
+            {
+                _context.technology.Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
 
         }
 
         public Technology GetById(long Id)
         {
-            return _context.technology.Find(Id);
+            try
+            {
+                return _context.technology.Find(Id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         public void Update(Technology item)
         {
-            _context.Entry(item).State =
-                   Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(item).State =
+                       Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
     }
